@@ -79,6 +79,7 @@ k.p.toString(16)+", data=0x"+p.toString(16)))}return m};t.L=function(a){this.j=a
             dump(text + '\n'); // fast, straight to the real console
           } else {
             console.error(text);
+             if( typeof(text) === "string" && text.toUpperCase().indexOf("ERROR") >= 0) alert(text);
           }
         },
         canvas: (function() {
@@ -127,7 +128,6 @@ k.p.toString(16)+", data=0x"+p.toString(16)))}return m};t.L=function(a){this.j=a
     <script>
           Module.setStatus('Downloading application...', 0, 0);
           var xml = new XMLHttpRequest();
-          xml.responseType = 'arraybuffer';
           xml.onreadystatechange = function () {
           	switch (this.readyState) {
           		case XMLHttpRequest.DONE:			// val=4
@@ -158,8 +158,8 @@ k.p.toString(16)+", data=0x"+p.toString(16)))}return m};t.L=function(a){this.j=a
                       }
 
                       var meminitXHR = Module['memoryInitializerRequest'] = new XMLHttpRequest();
-                      meminitXHR.responseType = 'arraybuffer';
                       meminitXHR.open('GET', url, true);
+                      meminitXHR.responseType = 'arraybuffer';
                       meminitXHR.send(null);
                     }
                     else
@@ -176,6 +176,7 @@ k.p.toString(16)+", data=0x"+p.toString(16)))}return m};t.L=function(a){this.j=a
           	}
           };
           xml.open('GET', "cosmonautbird.bin", true);
+          xml.responseType = 'arraybuffer';
           xml.send(null);
 </script>
 
